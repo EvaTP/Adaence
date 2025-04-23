@@ -1,57 +1,226 @@
 <!DOCTYPE html>
 <html lang="FR">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<!-- Polices -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-	
-	<title>Adaence</title>
-</head>
-<body>
-	<header>
-		<!-- <div id="header"> -->
-			<div id="logo" class="header">
-				<p>☕️ Adaence</p>
-			</div>
-			<div id="navbar" class="header">
-				<ul>
-					<li><a href="#">Accueil</a></li>
-					<li><a href="#">Je rends visite</a></li>
-					<li><a href="#">Guide du partage</a></li>
-					<li><a href="#">Devenir bénévole</a></li>
-				</ul>
-			</div>
-			<div id="btn-header" class="header">Faire un don</div>
-		<!-- </div> -->
-	</header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/svg" sizes="32x32" href="images/favicon.ico" />
 
-	<section id="accueil">
-		<img src="images/fiqih-pradana-qm-SgY--sVg-unsplash.jpg" alt="image-accueil">
-		<div id="hero">
-			
-			<h2>RÉTABLISSONS LES LIENS</h2>
-			<p>Et si vous offriez un peu de votre temps à ceux qui en ont le plus besoin ?
-				Prenez <br>rendez-vous pour partager un moment avec une personne âgée isolée.</p>
-		</div>
-	</section>
-	<main>
-		<div id="persons">
-			<h2>LES PERSONNALITÉS À RENCONTRER</h2>
-			<p>Feuilletez les visages de celles et ceux...</p>
-			<button id="profils">Voir tous les profils</button>
-		</div>
-		
-	</main>
-	<section id="how"></section>
-	<section id="CTA"></section>
-	<footer></footer>
+    <title>Adaence</title>
+  </head>
+  <body>
+    <header>
+      <!-- <div id="header"> -->
+      <div id="logo" class="header">
+        <p>☕️ Ada<span>ence</span></p>
+      </div>
+      <div id="navbar" class="header">
+        <ul>
+          <li>
+            <a href="index.html"
+              ><img src="icones/house.svg" alt="icone-accueil" /> Accueil</a
+            >
+          </li>
+          <li>
+            <a href="visiter.html"
+              ><img src="icones/accessibility.svg" alt="icone-visiter" /> Je
+              rends visite</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="icones/book-open.svg" alt="icone-guide" /> Guide du
+              partage</a
+            >
+          </li>
+          <li>
+            <a href="#"
+              ><img src="icones/hand-heart.svg" alt="icone-benevole" /> Devenir
+              bénévole</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div id="btn-header" class="header">
+        <button class="donation">Faire un don 🫶</button>
+      </div>
+      <!-- </div> -->
+    </header>
+    <!-- HERO -->
+    <section id="accueil">
+      <img
+        src="images/fiqih-pradana-qm-SgY--sVg-unsplash.jpg"
+        alt="image-accueil"
+      />
+      <div id="hero">
+        <h1>RÉTABLISSONS LES LIENS</h1>
+        <p>
+          Et si vous offriez un peu de votre temps à ceux qui en ont le plus
+          besoin ? Prenez <br />rendez-vous pour partager un moment avec une
+          personne âgée isolée.
+        </p>
+      </div>
+      <div id="recherche">
+        <form action="">
+          <div class="form-group">
+            <label for="momentType">Moment à partager</label>
+            <select name="momenttype" id="momentTtype">
+              <option value="">Rechercher</option>
+              <option value="cafe">Un café/thé</option>
+              <option value="repas">Un repas</option>
+              <option value="promenade">Une promenade</option>
+              <option value="culture">Une sortie culturelle</option>
+              <option value="autre">Autre activité</option>
+            </select>
+          </div>
 
+        <div class="form-group">
+          <label for="ville">Localisation</label>
+          <input type="text" id="ville" placeholder="Votre ville">
+        </div>
+          <button id="btn-searchForm" class="black">Rechercher 🔎</button>
+        </form>
+      </div>
+    </section>
 
-	<script src="script.js"></script>
-</body>
+    <main>
+      <!-- SECTION LES PERSONNALITES -->
+      <section id="persons">
+        <div class="blocs">
+        <h2>LES PERSONNALITÉS À RENCONTRER</h2>
+        <p>
+          Feuilletez les visages de celles et ceux qui attendent simplement un
+          peu de votre temps. Chaque <br />sourire porte une histoire, chaque
+          rencontre est une promesse.
+        </p>
+      </div>
+        <div id="mosaique">
+          <div class="photo-item">
+            <img src="images/danie-franco-ClHY-KyvI1M-unsplash.jpg" alt="photo-danie">
+          </div>
+          <div class="photo-item">
+            <img src="images/vladimir-soares-z_8Jqe0Cc-s-unsplash.jpg" alt="photo-vladimir">
+          </div>
+          <div class="photo-item">
+            <img src="images/tim-mossholder-FRPbQvAwY10-unsplash.jpg" alt="photo-tim">
+          </div>
+          <div class="photo-item">
+            <img src="images/shimo-yann-7nTFrV1xQGE-unsplash.jpg" alt="photo-shimo">
+          </div>
+          <div class="photo-item">
+            <img src="images/tatiana-zanon-MMhazsT2wtM-unsplash.jpg" alt="photo-tatiana">
+          </div>
+          <div class="photo-item">
+            <img src="images/michael-matveev-Bk8zT4gLLt0-unsplash.jpg" alt="photo-michael">
+          </div>
+          <div class="photo-item">
+            <img src="images/quentin-mahe-a6jCS61X1Hg-unsplash.jpg" alt="photo-quentin">
+          </div>
+          <div class="photo-item">
+            <img src="images/mohammad-samir-huHXKc_usoA-unsplash.jpg" alt="photo-mohammad">
+          </div>
+        </div>
+          <a href="visiter.html">
+            <button id="profils" class="black">Voir tous les profils</button>
+          </a>
+      </section>
+      <!-- SECTION COMMENT CA MARCHE -->
+      <section id="how">
+        <div class="blocs">
+        <h2>COMMENT ÇA MARCHE</h2>
+        <p>
+          Offrir un peu de votre temps, c'est offrir beaucoup. Découvrez comment
+          planifier une visite en toute simplicité.
+        </p>
+        </div>
+        <div id="cards">
+          <div class="card">
+            <p>🔍</p>
+            <p class="card-title">1. Choisissez une rencontre</p>
+            <p>Parcourez les profils de nos aînés et trouvez la personne avec qui vous aimeriez partage un moment chalureux.</p>
+          </div>
+          <div class="card">
+            <p>📝</p>
+            <p class="card-title">2. Remplissez le formulaire</p>
+            <p>Indiquez vos disponibilités et vos envies. Cela nous aide à organiser une rencontre adaptée et en toute confiance.</p>
+          </div>
+          <div class="card">
+            <p>👋</p>
+            <p class="card-title">3. Partagez un moment</p>
+            <p>Rendez visite à la personne âgée dans un cadre bienveillant. Une discussion, une balade ou simplement l'aider à une tâche ! Chaque moment compte.</p>
+          </div>
+          <div class="card">
+            <p>💞</p>
+            <p class="card-title">4. Créez du lien</p>
+            <p>Si le courant passe, vous pouvez revenir ! Ensemble, tissons des liens durables et combattons l'isolement pas à pas.</p>
+          </div>
+
+        </div>
+      </section>
+      <!-- SECTION CALL TO ACTION -->
+      <section id="CTA">
+        <div class="blocs">
+          <h2>PRÊT⸱E À FAIRE LA DIFFÉRENCE ?</h2>
+          <p>
+            Offrez un peu de votre temps, partagez un moment, créez du lien...
+            Chaque présence compte. En tendant la main à une personne âgée, vous
+            lui offrez bien plus qu'une visite : une vraie bouffée de chaleur
+            humaine.
+          </p>
+          <div id="btn-CTA">
+            <a href="visiter.html">
+              <button class="black">Programmer une visite</button>
+            </a>
+            <button class="donation">Faire un don 🫶</button>
+            <button class="volunteer">Devenir bénévole</button>
+          </div>
+        </div>
+       
+      </section>
+    </main>
+    <!-- FOOTER -->
+    <footer>
+      <div id="footer">
+        <div class="footer">
+          <h3>ADAENCE</h3>
+          <p>
+            Notre mission est de recréer du lien avec les personnes âgées
+            isolées, en leur offrant des moments de partage, d'écoute et de
+            présence.
+          </p>
+        </div>
+        <div class="footer">
+          <h3>INFORMATIONS UTILES</h3>
+          <ul class="">
+            <li>FAQs</li>
+            <li>Liste des activités</li>
+            <li>Nous contacter</li>
+            <li>Mentions légales</li>
+          </ul>
+        </div>
+        <div class="footer">
+          <h3>CONTACT</h3>
+          <p>116 rue du Faubourg Saint-Martin</p>
+          <p>75010 Paris, France</p>
+          <p>Email : contact@adaence.fr</p>
+          <p>Tél. : + 33 1 23 45 67 89</p>
+        </div>
+      </div>
+      <div id="legal">
+        <p>&copy; 2025 Adaence. Tous droits réservés.</p>
+        <p>
+          Ce site a été dévelopé dans le cadre d'un projet pour Ada Tech School.
+        </p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
 </html>
