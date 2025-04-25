@@ -3,7 +3,7 @@
 	  "firstname": "Franco",
 	  "age": 95,
 	  "job": "Ouvrier d'usine",
-	  "city": "Saint-Étienne",
+	  "city": "Saint-Etienne",
 	  "zipcode": "42000",
 	  "description": "Franco adore raconter ses souvenirs de l’usine et partager un bon café avec les jeunes du quartier.",
 	  "imageUrl": "/images/danie-franco-ClHY-KyvI1M-unsplash.jpg",
@@ -78,5 +78,45 @@
 	  "description": "Musicien passionné, Samir aime improviser quelques notes et créer des moments chaleureux avec les jeunes.",
 	  "imageUrl": "/images/mohammad-samir-huHXKc_usoA-unsplash.jpg",
 	  "type": "Un repas"
-	}
+	},
+	{
+		"firstname": "Nathalie",
+		"age": 87,
+		"job": "Infirmière",
+		"city": "Quimper",
+		"zipcode": "29000",
+		"description": "Pratique l'aquarelle et adore les balades dans la nature, elle adorerait partager ses passions en se promenant.",
+		"imageUrl": "/images/nathalie-gurtler-goGkWvz32Gg-unsplash.jpg",
+		"type": "Une promenade"
+	  },
+	  {
+		"firstname": "Maksym",
+		"age": 79,
+		"job": "Jardinier",
+		"city": "Paris",
+		"zipcode": "75018",
+		"description": "Amateur de nature et de plantes, ce refugié politique aime raconter l'histoire de son pays.",
+		"imageUrl": "/images/maksym-mazur-aJgAB_693_U-unsplash.jpg",
+		"type": "Un café/thé"
+	  },
+	  {
+		"firstname": "Mariam",
+		"age": 90,
+		"job": "Fleuriste",
+		"city": "Bordeaux",
+		"zipcode": "33000",
+		"description": "Mariam aime partager des moments autour de la culture et la dégustation de vins de Bordeaux.",
+		"imageUrl": "/images/mosoianu-bogdan-eY1_nQs9aNI-unsplash.jpg",
+		"type": "Une sortie culturelle"
+	  },
+	  {
+		"firstname": "Ahmed",
+		"age": 83,
+		"job": "Architecte",
+		"city": "Paris",
+		"zipcode": "75014",
+		"description": "Ahmed adore la ville et commenter les aménagements urbaines lors de promenades.",
+		"imageUrl": "/images/ahmed-OR_4O3JqvTI-unsplash.jpg",
+		"type": "Une promenade"
+	  }
   ]
