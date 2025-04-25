@@ -59,11 +59,11 @@
  <section id="recherchePage2">
 
     <div id="recherche2">
-      <form action="">
+      <form action="visiter.html" method="GET" target="_blank">
         <div class="form-group">
-          <label for="momentType">Moment à partager</label>
-          <select name="momenttype" id="momentTtype">
-            <option value="">Rechercher</option>
+          <label for="moment-type">Moment à partager</label>
+          <select name="moment-type" id="moment-type">
+            <option value="">-- Choisissez un moment --</option>
             <option value="cafe">Un café/thé</option>
             <option value="repas">Un repas</option>
             <option value="promenade">Une promenade</option>
@@ -74,22 +74,77 @@
 
       <div class="form-group">
         <label for="ville">Localisation</label>
-        <input type="text" id="ville" placeholder="Votre ville">
+        <input type="text" name="ville" id="ville" placeholder="Votre ville">
       </div>
-        <button id="btn-searchForm" class="black">Rechercher 🔎</button>
+        <button type="submit" id="btn-searchForm2" class="black">Rechercher 🔎</button>
       </form>
     </div>
+    <div id="nbrSearch"></div>
   </section>
 
+<!-- SECTION 1 : FORMULAIRE RECHERCHE -->
+  <div id="searchFormResults">
+    <!-- ici s'injecte le résultat du formulaire de recherche -->
+  </div>
 
 <!-- SECTION 2 : CARDS AINES -->
 	<section id="profils">
     <div id="loader">
       <!-- ici s'injecte la liste des personnes -->
     </div>
-
+    <div id="pagination" class="pagination"></div>
 	</section>
 
+
+<!-- FOOTER -->
+   <footer>
+    <div id="footer">
+      <div class="footer">
+        <h3>ADAENCE</h3>
+        <p>
+          Notre mission est de recréer du lien avec les personnes âgées
+          isolées, en leur offrant des moments de partage, d'écoute et de
+          présence.
+        </p>
+        <div id="social-icons">
+          <div class="social">
+            <img src="icones/facebook.svg" alt="facebook-icon">
+          </div>
+          <div class="social">
+            <img src="icones/instagram.svg" alt="instagram-icon">
+          </div>
+          <div class="social">
+            <img src="icones/linkedin.svg" alt="linkedin-icon">
+          </div>
+          <div class="social">
+            <img src="icones/twitch.svg" alt="twitch-icon">
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <h3>INFORMATIONS UTILES</h3>
+        <ul class="">
+          <li>FAQs</li>
+          <li>Liste des activités</li>
+          <li>Nous contacter</li>
+          <li>Mentions légales</li>
+        </ul>
+      </div>
+      <div class="footer">
+        <h3>CONTACT</h3>
+        <p>116 rue du Faubourg Saint-Martin</p>
+        <p>75010 Paris, France</p>
+        <p>Email : contact@adaence.fr</p>
+        <p>Tél. : + 33 1 23 45 67 89</p>
+      </div>
+    </div>
+    <div id="legal">
+      <p>&copy; 2025 Adaence. Tous droits réservés.</p>
+      <p>
+        Ce site a été dévelopé dans le cadre d'un projet pour Ada Tech School.
+      </p>
+    </div>
+  </footer>
   
 	<script src="visiter.js"></script>
 	</body>

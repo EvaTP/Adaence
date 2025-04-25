@@ -319,7 +319,7 @@ header {
 }
 #recherche form, #recherche2 form {
   display: flex;
-  align-items: flex-start;
+  align-items: column;
   gap: 2.5em;
 }
 .form-group {
@@ -330,7 +330,7 @@ header {
   margin-bottom: 0.3em;
   text-align: left;
 }
-#btn-searchForm {
+#btn-searchForm, #btn-searchForm2 {
   width: 50%;
 }
 /* SECTION PERSONNALITES */
@@ -536,6 +536,7 @@ footer p {
   /* z-index: 1; */
   border-radius: 15px;
   color: black;
+  margin-top: 1em;
 }
 .form-groupPage2 {
   display: flex;
@@ -545,12 +546,13 @@ footer p {
   margin-bottom: 0.3em;
   text-align: left;
 }
-#btn-searchForm {
+#btn-searchForm,
+#btn-searchForm2 {
   width: 50%;
 }
 
 /* CARDS AINES */
-
+#searchFormResults,
 #loader {
   width: 70%;
   display: grid;
@@ -558,34 +560,79 @@ footer p {
   /* grid-auto-rows: 150px; */
   gap: 10px;
 }
+#searchFormResults{
+  justify-content: center;
+}
 
 #profils {
   background-color: var(--light-color);
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 5em;
+}
+#profils p{
+  margin: 0.25em 0;
 }
 
 .eldercard {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-md);
-  padding : 1em;
+  padding : 0.4em;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden; /* évite le débordement */
 }
 .photoCard{
-  width: 200px;
-  height: 300px;
-  object-fit: fill;
-  /* object-position: 5px 100%; */
+  height: 40%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
-.textMomentCard{
+#profils .textMomentCard{
   font-weight: bold;
   text-align: center;
+  margin: 1.75em 0.10em 0.10em 0.10em;
 }
 .firstnameCard {
   color: var(--accent-color);
   font-weight: bold;
   font-size: 2em;
+  margin-left: 0.25em;
 }
-.paragraphCard{
+#profils .paragraphCard{
   font-size: 0.75em;
+  margin-top: 0.5em;
 }
+
+/* PAGINATION */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.pagination button {
+  border: none;
+  background-color: #eee;
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.pagination button:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.pagination .active {
+  background-color: var(--accent-color);
+  color: white;
+}
+

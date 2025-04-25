@@ -69,10 +69,11 @@
         </p>
       </div>
       <div id="recherche">
-        <form action="">
+        <form action="visiter.html" method="GET" target="_blank">
           <div class="form-group">
-            <label for="momentType">Moment à partager</label>
-            <select name="momenttype" id="momentTtype">
+            <label for="moment-type">Moment à partager</label>
+            <select name="moment-type" id="moment-type">
+              <option value="">-- Choisissez un moment --</option>
               <option value="">Rechercher</option>
               <option value="cafe">Un café/thé</option>
               <option value="repas">Un repas</option>
@@ -84,9 +85,9 @@
 
         <div class="form-group">
           <label for="ville">Localisation</label>
-          <input type="text" id="ville" placeholder="Votre ville">
+          <input type="text" name="ville" id="ville" placeholder="Votre ville">
         </div>
-          <button id="btn-searchForm" class="black">Rechercher 🔎</button>
+          <button type="submit" id="btn-searchForm" class="black">Rechercher 🔎</button>
         </form>
       </div>
     </section>

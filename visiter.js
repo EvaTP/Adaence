@@ -1,7 +1,8 @@
 // import { aines } from "./aines.js";
 
-// Eléments HTML
+// Eléments HTML pour afficher tous les aines
 const eldersDiv = document.querySelector("#loader");
+const paginationDiv = document.querySelector("#pagination");
 
 // afficher tous les aînés
 async function getAines() {
@@ -42,7 +43,7 @@ async function getAines() {
 		occupation.innerText = `${elder.job} ● ${elder.age} ans`;
 		// age.innerText = elder.age;
 		city.innerText = `${elder.city}`;
-		description.innerText = `${elder.description}`;
+		description.innerText = `❝ ${elder.description} ❞`;
 		bookActivity.innerText = "Programmer un moment";
 
 		eldersDiv.appendChild(card);
@@ -59,13 +60,79 @@ async function getAines() {
 		bookActivity.addEventListener("click", () =>{
 			console.log(`${elderFirstname} " - " ${activity}`);
 		})
-
-		// div.innerHTML = 
-		// `${person.firstname}${person.age}
-		// <img src="${person.imageUrl}" alt="${person.firstname}" style="max-width: 100px;">
-		// `;
-		// profilsDiv.appendChild(card);
-	
 	});
   }
+
+// affichage résultats search form
+const searchParams = new URLSearchParams(window.location.search);
+const typeRecherche = searchParams.get("moment-type");
+const villeRecherche = searchParams.get("ville").toLowerCase();
+
+const resultNbrDiv = document.querySelector("#nbrSearch");
+const formResultsDiv = document.querySelector("#searchFormResults");
+
+
+
+// Si des critères de recherche existent, on filtre
+  if (typeRecherche && villeRecherche) {
+	// eldersDiv.style.display = "none";
+    formResultsDiv = eldersList.filter((elder) => {
+      const matchType = !typeRecherche || elder.type.toLowerCase().includes(typeRecherche);
+      const matchVille = !villeRecherche || elder.city.toLowerCase().includes(villeRecherche);
+      return matchType && matchVille;
+    });
+	console.log("🍓=== ici" )
+    // On masque l'affichage global
+    // eldersDiv.style.display = "none";
+
+    // Et on affiche les résultats filtrés
+    showFilteredResults(filteredResults);
+  } else {
+    // Sinon on affiche tous les resultats
+    showElders(eldersList);
+  }
+//getAines();
+
+
+// Fonction d'affichage des résultats filtrés
+// function showFilteredResults(list) {
+// //   formResultsDiv.innerHTML = "";
+
+//   if (list.length === 0) {
+//     resultNbrDiv.innerHTML = "<p>Aucun résultat trouvé.</p>";
+//     return;
+//   }
+
+//   list.forEach((elder) => {
+//     const card = document.createElement("div");
+//     card.classList.add("eldercard");
+
+//     card.innerHTML = `
+//       <img src="${elder.imageUrl}" class="photoCard" />
+//       <p class="textMomentCard">${elder.type}</p>
+//       <h3 class="firstnameCard">${elder.firstname}</h3>
+//       <p>${elder.job} ● ${elder.age} ans</p>
+//       <p>${elder.city}</p>
+//       <p class="paragraphCard">❝ ${elder.description} ❞</p>
+//       <button class="black">Programmer un moment</button>
+//     `;
+
+//     // Ajout du comportement du bouton
+//     const button = card.querySelector("button");
+//     button.addEventListener("click", () => {
+//       console.log(`Visite prévue avec ${elder.firstname} pour ${elder.type}`);
+//     });
+
+//     formResultsDiv.appendChild(card);
+//   });
+// }
+
+// Fonction d’affichage global si pas de filtre
+// function showElders(list) {
+//   eldersDiv.innerHTML = "";
+//   list.forEach((elder) => {
+//     // même logique que showFilteredResults
+//   });
+// }
+
 	
