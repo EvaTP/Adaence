@@ -99,6 +99,7 @@ video {
   --light-color: #f9f9f9;
   --dark-color: #333;
   --grey-color: #595959;
+  --yellowcolor: goldenrod;
 
   --btn-primary-bg: #333;
   --btn-secondary-bg: #8584ff;
@@ -126,7 +127,7 @@ body {
   background-color: var(--light-color);
   height: 100%;
   margin: 0;
-  padding-bottom: 40px;
+  padding-bottom: 80px;
 }
 body {
   font-family: var(--font-family-body);
@@ -232,6 +233,8 @@ header {
 #logo {
   width: 15%;
   margin-right: 2.5em;
+  margin-left: 1em;
+  padding-right: 0.25em;
 }
 #logo p {
   font-size: 1.5em;
@@ -241,25 +244,25 @@ header {
 #logo p span {
   color: var(--secondary-color);
 }
-#navbar {
+nav {
   width: 70%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: baseline;
 }
-#navbar ul {
+nav ul {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-#navbar ul li {
+nav ul li {
   list-style-type: none;
   align-items: center;
   padding: 1em;
 }
 
-#navbar li a {
+nav li a {
   display: inline-block;
   text-decoration: none;
   font-family: var(--font-family-body);
@@ -268,6 +271,9 @@ header {
 }
 
 /* SECTION ACCUEIL */
+/*section{
+  margin: var(--section-margin);  2rem 0 
+}*/
 #accueil {
   position: relative;
   color: white;
@@ -504,6 +510,10 @@ footer p {
   list-style-type: none;
   padding: 0.75em;
 }
+#footer li a{
+  color: white;
+  text-decoration: none;
+}
 #footer p {
   line-height: 1.5em;
   color: white;
@@ -525,7 +535,6 @@ footer p {
   flex-direction: row;
   justify-content: center;
 }
-
 #recherche2 {
   /* position: absolute; */
   width: 65%;
@@ -550,6 +559,11 @@ footer p {
 #btn-searchForm2 {
   width: 50%;
 }
+.nbrSearchResults p{
+  color: goldenrod;
+  /* color: var(--yellowcolor); */
+  font-weight: bold;
+}
 
 /* CARDS AINES */
 #searchFormResults,
@@ -559,22 +573,19 @@ footer p {
   grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
   /* grid-auto-rows: 150px; */
   gap: 10px;
+  background-color: var(--light-color);
 }
-#searchFormResults{
-  justify-content: center;
-}
-
+/* Affichage tous les aînés dans la section PROFILS */
 #profils {
   background-color: var(--light-color);
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 5em;
+  margin-bottom: 7em;
 }
 #profils p{
   margin: 0.25em 0;
 }
-
 .eldercard {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-md);
@@ -607,7 +618,6 @@ footer p {
   font-size: 0.75em;
   margin-top: 0.5em;
 }
-
 /* PAGINATION */
 .pagination {
   display: flex;
@@ -615,7 +625,6 @@ footer p {
   gap: 0.5em;
   margin-top: 1em;
 }
-
 .pagination button {
   border: none;
   background-color: #eee;
@@ -625,14 +634,28 @@ footer p {
   font-weight: bold;
   transition: background-color 0.2s;
 }
-
 .pagination button:hover {
   background-color: var(--accent-color);
   color: white;
 }
-
 .pagination .active {
   background-color: var(--accent-color);
   color: white;
 }
+
+/* Affichage du résultat du filtre dans la div "searchFormResults" */
+
+#filtered{
+  margin: 2em 1em;
+  padding: 2em 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#searchFormResults {
+  gap: 14px;
+}
+
+
 
