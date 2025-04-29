@@ -71,34 +71,34 @@
 				<h2>FORMULAIRE D'INSCRIPTION</h2>
 				<p>Remplissez ce formulaire pour réjoindre notre réseau de bénévoles. Nous vous contacterons rapidement pour vous présenter les prochaines étapes.</p>
 				<div class="form-group-volunteer">
-					<div class="form-groupPage3">
+					<div class="form-groupPage3 name">
 						<label for="prenom" required>Prénom <span>*</span></label>
 						<input type="text" name="prenom" placeholder="Votre prénom">
 					</div>
-					<div class="form-groupPage3">
+					<div class="form-groupPage3 surname">
 						<label for="nom" required>Nom <span>*</span></label>
 						<input type="text" name="nom" placeholder="Votre nom">
 					</div>
 				</div>
 				<div class="form-group-volunteer">
-					<div class="form-groupPage3">
+					<div class="form-groupPage3 mail">
 						<label for="email" required>Adresse email <span>*</span></label>
 						<input type="email" name="email" placeholder="exemple@gmail.com">
 					</div>
 				</div>
 				<div class="form-group-volunteer">
-					<div class="form-group">
+					<div class="form-groupPage3 city">
 						<label for="ville">Ville <span>*</span></label>
 						<input type="text" name="ville" required placeholder="Votre ville">
 					</div>
-					<div class="form-groupPage3">
+					<div class="form-groupPage3 zipcode">
 						<label for="cp">Code postal <span>*</span></label>
 						<input type="text" name="cp" required placeholder="Code postal">
 					</div>
 				</div>
 
 				<div class="form-group-volunteer">
-					<div class="form-groupPage3">
+					<div class="form-groupPage3 disponibilites">
 						<label for="dispos">Disponibilités <span>*</span></label>
 						<select name="dispos" required id="moment-dispo">
 							<option value="">-- Sélectionnez vos disponibilités --</option>	
@@ -110,9 +110,9 @@
 					</div>
 				</div>	
 			  <div class="form-group-volunteer">
-					<div class="form-groupPage3">
+					<div class="form-groupPage3 motiv">
 						<label for="motivation">Votre motivation <span>*</span></label>
-						<input type="textarea" name="motivation" required id="motivation" rows="10" cols="33" maxlength="40" placeholder="Parlez-nous de votre motivation à devenir bénévole chez Adaence...">
+						<textarea name="motivation" required id="motivation" rows="10" cols="33" maxlength="40" placeholder="Parlez-nous de votre motivation à devenir bénévole chez Adaence..."></textarea>
 					</div>
 				</div>
 			  <p><span>*</span> champs obligatoires</p>
@@ -204,7 +204,10 @@
 				<a href="visiter.html">
 				  <button class="black">Foire aux questions</button>
 				</a>
-				<button class="violet">Contactez-nous</button>
+
+				<a href="mailto:tharratseva@gmail.com">
+					<button class="violet">Contactez-nous</button>
+				</a>
 			  </div>
 			</div>
 		  </section>
