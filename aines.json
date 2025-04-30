@@ -128,5 +128,25 @@
 		"description": "Ahmed adore la ville et commenter les aménagements urbaines lors de promenades.",
 		"imageUrl": "/images/ahmed-OR_4O3JqvTI-unsplash.jpg",
 		"type": "Une promenade"
+	  },
+	  {
+		"firstname": "Elise",
+		"age": 80,
+		"job": "Cantatrice",
+		"city": "Toulouse",
+		"zipcode": "31000",
+		"description": "Elise adore retrouver des gens dans un café et raconter ses souvenirs de chanteuse lyrique.",
+		"imageUrl": "/images/gaspar-zaldo-Dc_IIWOrRmg-unsplash.jpg",
+		"type": "Un café/thé"
+	  },
+	  {
+		"firstname": "Michel",
+		"age": 90,
+		"job": "Ecrivain",
+		"city": "Angers",
+		"zipcode": "49000",
+		"description": "Michel a consacré sa vie à l'écriture de romans historiques et aimerait partager ses connaissance sur le vieux Angers.",
+		"imageUrl": "/images/tom-morbey-iuD2UOm-EUk-unsplash.jpg",
+		"type": "Une promenade"
 	  }
   ]
