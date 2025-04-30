@@ -24,7 +24,7 @@ async function getElders() {
   eldersList = await response.json();
   console.log("🦊", eldersList);
 
-  if (typeRecherche && villeRecherche) {
+  if (typeRecherche || villeRecherche) {
     showFilteredElders(eldersList);
   } else {
     showAllElders(eldersList);
@@ -39,7 +39,7 @@ function showAllElders(eldersList) {
   eldersDiv.innerHTML = "";
   formResultsDiv.innerHTML = "";
   resultNbrDiv.innerHTML = "";
-  console.log(eldersList);
+  console.log("🐸", eldersList);
 
   eldersList.forEach((elder) => {
     const card = document.createElement("div");
@@ -86,7 +86,7 @@ function showAllElders(eldersList) {
 }
 
 
-// Afficher les ainés filtrés
+// Afficher les ainés FILTRES
 function showFilteredElders(eldersList) {
   eldersDiv.innerHTML = "";
   formResultsDiv.innerHTML = "";
@@ -108,7 +108,6 @@ function showFilteredElders(eldersList) {
     resultNbrDiv.innerHTML = `<p>Aucun résultat trouvé.</p>`;
     resultNbrDiv.classList.add("nbrSearchResults");
   }
-
   resultNbrDiv.innerHTML = `<p>${filtered.length} résultat(s) trouvé(s)</p>`;
   resultNbrDiv.classList.add("nbrSearchResults");
   setResetLink();
@@ -117,66 +116,50 @@ function showFilteredElders(eldersList) {
 }
 
 
-// Génère et insère une carte pour un aîné donné dans le conteneur cible
-function renderElderCard(elder, container) {
+// Génère et insère UNE carte pour un aîné donné dans le conteneur "card"
+function renderElderCard(elder, formResultsDiv) {
   const card = document.createElement("div");
-  card.classList.add("eldercard");
+  const elderImage = document.createElement("img");
+  const activity = document.createElement("p");
+  const elderFirstname = document.createElement("h3");
+  const occupation = document.createElement("p");
+  const city = document.createElement("p");
+  const description = document.createElement("p");
+  const bookActivity = document.createElement("button");
 
-  card.innerHTML = `
-	<img src="${elder.imageUrl}" class="photoCard" />
-	<p class="textMomentCard">${elder.type}</p>
-	<h3 class="firstnameCard">${elder.firstname}</h3>
-	<p>${elder.job} ● ${elder.age} ans</p>
-	<p>${elder.city}</p>
-	<p class="paragraphCard">❝ ${elder.description} ❞</p>
-	<button class="black">Programmer un moment</button>
-`;
+	card.classList.add("eldercard");
+	elderImage.classList.add("photoCard");
+	activity.classList.add("textMomentCard");
+	elderFirstname.classList.add("firstnameCard");
+	description.classList.add("paragraphCard");
+	bookActivity.classList.add("black");
 
-  card.querySelector("button").addEventListener("click", () => {
-    console.log(`Visite prévue avec ${elder.firstname} pour ${elder.type}`);
+  // Création du contenu de la carte
+  elderImage.src = `${elder.imageUrl}`;
+  activity.innerText = `${elder.type}`;
+  elderFirstname.innerText = `${elder.firstname}`;
+  occupation.innerText = `${elder.job} ● ${elder.age} ans`;
+  city.innerText = `${elder.city}`;
+  description.innerText = `❝ ${elder.description} ❞`;
+  bookActivity.innerText = "Programmer un moment";
+
+  // Ajout du contenu au DOM
+  card.appendChild(elderImage);
+  card.appendChild(activity);
+  card.appendChild(elderFirstname);
+  card.appendChild(occupation);
+  card.appendChild(city);
+  card.appendChild(description);
+  card.appendChild(bookActivity);
+
+  // Attacher l'événement sur le bouton après que le DOM a été mis à jour
+  bookActivity.addEventListener("click", () => {
+    console.log(`${elder.firstname} - ${elder.type}`);
   });
-  container.appendChild(card);
+
+  // Ajouter la carte au conteneur
+  formResultsDiv.appendChild(card);
 }
-
-// const elderImage = document.createElement("img");
-// const activity = document.createElement("p");
-// const elderFirstname = document.createElement("h3");
-// const occupation = document.createElement("p");
-// const age = document.createElement("p");
-// const city = document.createElement("p");
-// const description = document.createElement("p");
-// const bookActivity = document.createElement("button");
-
-// card.classList.add("eldercard");
-// elderImage.classList.add("photoCard");
-// activity.classList.add("textMomentCard");
-// elderFirstname.classList.add("firstnameCard");
-// description.classList.add("paragraphCard");
-// bookActivity.classList.add("black");
-
-// elderImage.src = `${elder.imageUrl}`;
-// activity.innerText = `${elder.type}`;
-// elderFirstname.innerText = `${elder.firstname}`;
-// occupation.innerText = `${elder.job} ● ${elder.age} ans`;
-// // age.innerText = elder.age;
-// city.innerText = `${elder.city}`;
-// description.innerText = `❝ ${elder.description} ❞`;
-// bookActivity.innerText = "Programmer un moment";
-
-// eldersDiv.appendChild(card);
-// card.appendChild(elderImage);
-// card.appendChild(activity);
-// card.appendChild(elderFirstname);
-// card.appendChild(occupation);
-// card.appendChild(age);
-// card.appendChild(city);
-// card.appendChild(description);
-// card.appendChild(bookActivity);
-
-// ajouter un gestionnaire d'événements pour le bouton "Programmer un moment"
-bookActivity.addEventListener("click", () => {
-  console.log(`${elderFirstname} " - " ${activity}`);
-});
 
 
 // Reset lien formulaire
@@ -188,3 +171,5 @@ function setResetLink() {
   resetLink.appendChild(link);
 }
 
+
+  
