@@ -815,7 +815,7 @@ button#btn-volunteer{
   display: flex;
   flex-direction: row;
   justify-content:flex-start;
-  gap: 5px;
+  gap: 2px;
 }
 .volunteer-photo{
   margin: 0.5em;
@@ -828,20 +828,39 @@ button#btn-volunteer{
   display: flex;
   flex-direction: column;
 }
-.card-volunteer p:first-child {
-  font-size: 1em;
-  margin: 1.5em 0 0 1em;
-}
-.card-volunteer p {
-  font-size: 1em;
-  margin: 0.25em 0 0 1em;
-}
-.card-volunteer-title {
-  font-weight: bold;
-}
+
 .card-volunteer p{
   font-style: italic;
+  margin: 1.25em 0 -0.5em 1em;
 }
+
+.quotation {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  background-color: #f9f9f9;
+  margin: 1em 0;
+}
+
+.quote {
+  font-size: 4em;
+  color: #ccc;
+  line-height: 1;
+}
+
+.quotation blockquote {
+  margin: 0;
+  padding: 0 1em 0 0;
+  font-style: italic;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+
+
+
+
+
 /* Questions */
 
 
