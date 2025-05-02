@@ -108,6 +108,7 @@ video {
   --btn-primary-hover-bg: #e74c3c;
   --btn-secondary-hover-bg: #333;
   --btn-accent-hover-bg: #8584ff;
+  --btn-disabled: #595959;
 
   --font-family-heading: "Amatic SC", sans-serif;
   --font-family-body: "Roboto", sans-serif;
@@ -219,14 +220,25 @@ button.black {
 button.black:hover {
   background-color: var(--btn-primary-hover-bg);
 }
-button#btn-suivant{
-  margin: 1.5m, 0;
+button#btn-previous, button#btn-next{
+  margin: 1.5em 0;
   padding : 0.5em 1em;
-  background-color: var( --btn-secondary-bg);
-  border: 0px solid var( --btn-secondary-bg);
+  background-color: var(--btn-secondary-bg);
+  border: 0px solid var(--btn-secondary-bg);
   color: white;
   border-radius: var( --border-radius);
 }
+button#btn-previous:disabled, button#btn-next:disabled{
+  margin: 1.5em 0;
+  padding : 0.5em 1em;
+  background-color: var(--btn-secondary-bg);
+  border: 0px solid var(--btn-secondary-bg);
+  color: white;
+  border-radius: var(--border-radius);
+  opacity: 0.6;
+  cursor:not-allowed; /* curseur grisé */
+}
+
 
 /* HEADER */
 header {
@@ -279,7 +291,7 @@ nav li a {
   border-bottom: 2px solid transparent;
   padding: 10px 0px;
 }
-
+/* PAGE 1 */
 /* SECTION ACCUEIL */
 /*section{
   margin: var(--section-margin);  2rem 0 
@@ -439,6 +451,7 @@ main {
   flex-direction: row;
   justify-content: space-around;
   align-items: stretch; /* Étire les éléments enfants sur l'axe transversal */
+  margin: 1em, 0;
 }
 .card {
   border-radius: 15px;
@@ -653,6 +666,11 @@ footer p {
   justify-content: center;
   gap: 0.5em;
   margin-top: 1em;
+}
+#buttonsDiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .pagination button {
   border: none;

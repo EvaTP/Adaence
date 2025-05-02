@@ -10,8 +10,11 @@ const resetLink = document.querySelector("#reset");
 
 // Pagination
 const paginationDiv = document.querySelector("#pagination");
-const itemsPerPage = 8;
-let currentPage = 1;
+const itemsPerPage = 5;
+let currentPage = 0;
+const nextButton = document.querySelector("#btn-next");
+const previousButton = document.querySelector("#btn-previous");
+
 
 // affichage résultats search form Search Params
 const searchParams = new URLSearchParams(window.location.search);
@@ -29,7 +32,6 @@ async function getElders() {
   } else {
     showAllElders(eldersList);
   }
-  //showAllElders(eldersList);
 }
 getElders();
 
@@ -41,7 +43,13 @@ function showAllElders(eldersList) {
   resultNbrDiv.innerHTML = "";
   console.log("🐸", eldersList);
 
-  eldersList.slice(0,5).forEach((elder) => {
+  const startPage = currentPage * itemsPerPage;  // première page
+  const endPage = startPage + itemsPerPage;       // première page + 5 elders
+  const showPaginatedElders = eldersList.slice(startPage, endPage);
+
+  showPaginatedElders.forEach((elder) => {
+    console.log("🐷");
+    console.log(eldersList);
     const card = document.createElement("div");
     const elderImage = document.createElement("img");
     const activity = document.createElement("p");
@@ -83,7 +91,30 @@ function showAllElders(eldersList) {
       console.log(`${elder.firstname} - ${elder.type}`);
     });
   });
+
 }
+
+// bouton PRECEDENT
+previousButton.addEventListener("click", ()=>{
+  if(currentPage > 0){
+    currentPage--;
+    showAllElders(eldersList);
+    nextButton.disabled = false;
+  }
+  if(currentPage === 0){
+    previousButton.disabled = true;
+  }
+});
+
+// bouton SUIVANT
+nextButton.addEventListener("click", ()=>{
+  currentPage++;
+  showAllElders(eldersList);
+  if((currentPage + 1) * itemsPerPage >= eldersList.length){
+    nextButton.disabled = true;
+  };
+});
+
 
 
 // Afficher les ainés FILTRES
