@@ -41,7 +41,7 @@ function showAllElders(eldersList) {
   resultNbrDiv.innerHTML = "";
   console.log("🐸", eldersList);
 
-  eldersList.forEach((elder) => {
+  eldersList.slice(0,5).forEach((elder) => {
     const card = document.createElement("div");
     const elderImage = document.createElement("img");
     const activity = document.createElement("p");
@@ -161,7 +161,6 @@ function renderElderCard(elder, formResultsDiv) {
   formResultsDiv.appendChild(card);
 }
 
-
 // Reset lien formulaire
 function setResetLink() {
   const link = document.createElement("a"); // Créer dynamiquement le lien
@@ -169,6 +168,16 @@ function setResetLink() {
   link.innerText = "Réinitialiser les filtres";
  
   resetLink.appendChild(link);
+}
+
+// affichage pages
+if(eldersList.length > 8) {
+  // On crée une barre de navigation s'il y a plus de 8 elders
+  paginationDiv.innerHTML = '';
+  list.forEach((item, i) => {
+    const caption = item.textContent;
+    innerHTML += `<button data-page="${i}">${caption}</button>`;
+  });
 }
 
 
