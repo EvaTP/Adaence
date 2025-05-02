@@ -99,6 +99,7 @@ video {
   --light-color: #f9f9f9;
   --dark-color: #333;
   --grey-color: #595959;
+  --medium-grey-color: #F0F0F2;
   --yellowcolor: goldenrod;
 
   --btn-primary-bg: #333;
@@ -124,7 +125,7 @@ video {
 /* STYLES GENERAUX */
 html,
 body {
-  background-color: var(--light-color);
+  background-color: var(--medium-grey-color);
   height: 100%;
   margin: 0;
   /* padding-bottom: 80px; */
@@ -218,6 +219,14 @@ button.black {
 button.black:hover {
   background-color: var(--btn-primary-hover-bg);
 }
+button#btn-suivant{
+  margin: 1.5m, 0;
+  padding : 0.5em 1em;
+  background-color: var( --btn-secondary-bg);
+  border: 0px solid var( --btn-secondary-bg);
+  color: white;
+  border-radius: var( --border-radius);
+}
 
 /* HEADER */
 header {
@@ -229,6 +238,7 @@ header {
   justify-content: space-around;
   align-items: center;
   font-family: "Roboto", sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 #logo {
   width: 15%;
@@ -422,7 +432,7 @@ main {
 #how, #why {
   text-align: center;
   background-color: white;
-  padding: 3.5em;
+  padding: 4em, 3.5em;
 }
 #cards {
   display: flex;
@@ -528,6 +538,9 @@ footer p {
 
 /* PAGE 2 : VISITER */
 
+#bodyPageVisiter{
+  background-color: (--medium-grey-color);
+}
 /* Formulaire recherche */
 
 #recherchePage2{
@@ -589,7 +602,7 @@ footer p {
 }
 /* Affichage tous les aînés dans la section PROFILS */
 #profils {
-  background-color: var(--light-color);
+  background-color: var(--medium-grey-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -801,7 +814,7 @@ button#btn-volunteer{
 #cards-volunteers {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content:space-around;
   align-items: center;
   text-align: left;
 }
@@ -810,6 +823,7 @@ button#btn-volunteer{
   box-shadow: var(--shadow-lg);
   width: 80%;
   padding: 1em;
+  background-color: #f9f9f9;
 }
 .volunteer-credentials{
   display: flex;
@@ -838,7 +852,6 @@ button#btn-volunteer{
   display: flex;
   align-items: flex-start;
   gap: 0.5em;
-  background-color: #f9f9f9;
   margin: 1em 0;
 }
 
