@@ -1,7 +1,7 @@
-// Eléments HTML pour afficher tous les aines
+// Eléments HTML pour afficher tous les aînés
 const eldersDiv = document.querySelector("#loader");
 let eldersList = [];
-// search form
+// search form pour filtrer les aînés
 const formResultsDiv = document.querySelector("#searchFormResults");
 // affichage du nombre de résultats dans le formulaire
 const resultNbrDiv = document.querySelector("#nbrSearch");
@@ -10,7 +10,8 @@ const resetLink = document.querySelector("#reset");
 
 // Pagination
 const paginationDiv = document.querySelector("#pagination");
-const itemsPerPage = 5;
+const pageNumbersDiv = document.querySelector("#page-numbers");
+const itemsPerPage = 6;
 let currentPage = 0;
 const nextButton = document.querySelector("#btn-next");
 const previousButton = document.querySelector("#btn-previous");
@@ -91,8 +92,35 @@ function showAllElders(eldersList) {
       console.log(`${elder.firstname} - ${elder.type}`);
     });
   });
-
+  renderPagination(eldersList);
 }
+
+// affichage de la pagination
+function renderPagination(eldersList){
+  const totalPages = Math.ceil(eldersList.length / itemsPerPage);
+  pageNumbersDiv.innerHTML = "";
+
+    for(let i = 0; i < totalPages; i++){
+      const pageNumberBtn = document.createElement("button");
+      pageNumberBtn.innerText = i + 1;
+      pageNumberBtn.classList.add("pagination");
+        if(i === currentPage){
+          pageNumberBtn.classList.add("active");
+        }
+        pageNumberBtn.addEventListener("click", ()=>{
+          currentPage = i;
+          showAllElders(eldersList);
+        });
+        pageNumbersDiv.appendChild(pageNumberBtn);
+    }
+    // Met à jour l'état des boutons précédent/suivant
+    // assure que l’état des boutons "Précédent" et "Suivant" soit correct à chaque changement de page, même quand on change de page en cliquant sur un bouton numérique.
+  previousButton.disabled = currentPage === 0;
+  nextButton.disabled = (currentPage + 1) * itemsPerPage >= eldersList.length;
+}
+
+
+
 
 // bouton PRECEDENT
 previousButton.addEventListener("click", ()=>{
@@ -201,15 +229,19 @@ function setResetLink() {
   resetLink.appendChild(link);
 }
 
+
+
 // affichage pages
-if(eldersList.length > 8) {
-  // On crée une barre de navigation s'il y a plus de 8 elders
-  paginationDiv.innerHTML = '';
-  list.forEach((item, i) => {
-    const caption = item.textContent;
-    innerHTML += `<button data-page="${i}">${caption}</button>`;
-  });
-}
+// if(eldersList.length > 8) {
+//   // On crée une barre de navigation s'il y a plus de 8 elders
+//   paginationDiv.innerHTML = '';
+//   list.forEach((item, i) => {
+//     const caption = item.textContent;
+//     innerHTML += `<button data-page="${i}">${caption}</button>`;
+//   });
+// }
+
+
 
 
   

@@ -109,6 +109,7 @@ video {
   --btn-secondary-hover-bg: #333;
   --btn-accent-hover-bg: #8584ff;
   --btn-disabled: #595959;
+  --btn--active: green;
 
   --font-family-heading: "Amatic SC", sans-serif;
   --font-family-body: "Roboto", sans-serif;
@@ -220,6 +221,7 @@ button.black {
 button.black:hover {
   background-color: var(--btn-primary-hover-bg);
 }
+/* Boutons pagination */
 button#btn-previous, button#btn-next{
   margin: 1.5em 0;
   padding : 0.5em 1em;
@@ -238,6 +240,28 @@ button#btn-previous:disabled, button#btn-next:disabled{
   opacity: 0.6;
   cursor:not-allowed; /* curseur grisé */
 }
+.pagination button {
+  border: none;
+  background-color: var(--btn-secondary-bg);
+  padding: 0.5em 1em;
+  border-radius: 0.3em;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+.pagination button:hover {
+  background-color: var(--accent-color);
+  color: white;
+}
+.pagination .active {
+  background-color: var(--btn--active);
+  font-weight: bold;
+  color: white;
+  cursor: default;
+}
+
 
 
 /* HEADER */
@@ -292,6 +316,7 @@ nav li a {
   padding: 10px 0px;
 }
 /* PAGE 1 */
+/* ****** */
 /* SECTION ACCUEIL */
 /*section{
   margin: var(--section-margin);  2rem 0 
@@ -529,7 +554,6 @@ footer p {
   width: 2em;
   height: 2.5em;
 }
-
 #footer li {
   list-style-type: none;
   padding: 0.75em;
@@ -550,6 +574,7 @@ footer p {
 }
 
 /* PAGE 2 : VISITER */
+/* **************** */
 
 #bodyPageVisiter{
   background-color: (--medium-grey-color);
@@ -594,7 +619,6 @@ footer p {
 }
 .nbrSearchResults p{
   color: rgb(241, 177, 14);
-  /* color: var(--yellowcolor); */
   font-weight: bold;
 }
 #reset a{
@@ -661,34 +685,24 @@ footer p {
   padding: 0.5em;
 }
 /* PAGINATION */
+
+#pagination{
+  margin-top: 1.5em;
+}
 .pagination {
   display: flex;
-  justify-content: center;
-  gap: 0.5em;
-  margin-top: 1em;
+  align-items: center; /* <- aligne verticalement les enfants */
+  justify-content: center; /* <- centre horizontalement les éléments */
+  gap: 1em; /* espace entre les éléments si besoin */
 }
-#buttonsDiv{
+
+/* #buttonsDiv{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
-.pagination button {
-  border: none;
-  background-color: #eee;
-  padding: 0.5em 1em;
-  border-radius: 0.3em;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s;
-}
-.pagination button:hover {
-  background-color: var(--accent-color);
-  color: white;
-}
-.pagination .active {
-  background-color: var(--accent-color);
-  color: white;
-}
+} */
+
+
 
 /* Affichage du résultat du filtre dans la div "searchFormResults" */
 
