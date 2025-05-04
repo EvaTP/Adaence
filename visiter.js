@@ -1,4 +1,6 @@
-// Eléments HTML pour afficher tous les aînés
+// Eléments HTML
+// *************
+// Affichage de tous les aînés
 const eldersDiv = document.querySelector("#loader");
 let eldersList = [];
 // search form pour filtrer les aînés
@@ -16,13 +18,14 @@ let currentPage = 0;
 const nextButton = document.querySelector("#btn-next");
 const previousButton = document.querySelector("#btn-previous");
 
-
 // affichage résultats search form Search Params
 const searchParams = new URLSearchParams(window.location.search);
 const typeRecherche = searchParams.get("moment-type");
 const villeRecherche = searchParams.get("ville")?.toLowerCase();
 
-// afficher tous les aînés
+
+// fonction GLOBALE afficher aînés
+// *******************************
 async function getElders() {
   const response = await fetch("./aines.json");
   eldersList = await response.json();
@@ -36,7 +39,9 @@ async function getElders() {
 }
 getElders();
 
+
 // Afficher TOUS LES AINES
+// ***********************
 // photo, type de moment, prénom, métier, age, localisation, description
 function showAllElders(eldersList) {
   eldersDiv.innerHTML = "";
@@ -45,7 +50,7 @@ function showAllElders(eldersList) {
   console.log("🐸", eldersList);
 
   const startPage = currentPage * itemsPerPage;  // première page
-  const endPage = startPage + itemsPerPage;       // première page + 5 elders
+  const endPage = startPage + itemsPerPage;       // première page + 6 elders
   const showPaginatedElders = eldersList.slice(startPage, endPage);
 
   showPaginatedElders.forEach((elder) => {
@@ -88,64 +93,17 @@ function showAllElders(eldersList) {
     card.appendChild(bookActivity);
 
     // ajouter un gestionnaire d'événements pour le bouton "Programmer un moment"
-    bookActivity.addEventListener("click", () => {
+    bookActivity.addEventListener("click", (e) => {
+      e.preventDefault();
       console.log(`${elder.firstname} - ${elder.type}`);
     });
   });
   renderPagination(eldersList);
 }
 
-// affichage de la pagination
-function renderPagination(eldersList){
-  const totalPages = Math.ceil(eldersList.length / itemsPerPage);
-  pageNumbersDiv.innerHTML = "";
 
-    for(let i = 0; i < totalPages; i++){
-      const pageNumberBtn = document.createElement("button");
-      pageNumberBtn.innerText = i + 1;
-      pageNumberBtn.classList.add("pagination");
-        if(i === currentPage){
-          pageNumberBtn.classList.add("active");
-        }
-        pageNumberBtn.addEventListener("click", ()=>{
-          currentPage = i;
-          showAllElders(eldersList);
-        });
-        pageNumbersDiv.appendChild(pageNumberBtn);
-    }
-    // Met à jour l'état des boutons précédent/suivant
-    // assure que l’état des boutons "Précédent" et "Suivant" soit correct à chaque changement de page, même quand on change de page en cliquant sur un bouton numérique.
-  previousButton.disabled = currentPage === 0;
-  nextButton.disabled = (currentPage + 1) * itemsPerPage >= eldersList.length;
-}
-
-
-
-
-// bouton PRECEDENT
-previousButton.addEventListener("click", ()=>{
-  if(currentPage > 0){
-    currentPage--;
-    showAllElders(eldersList);
-    nextButton.disabled = false;
-  }
-  if(currentPage === 0){
-    previousButton.disabled = true;
-  }
-});
-
-// bouton SUIVANT
-nextButton.addEventListener("click", ()=>{
-  currentPage++;
-  showAllElders(eldersList);
-  if((currentPage + 1) * itemsPerPage >= eldersList.length){
-    nextButton.disabled = true;
-  };
-});
-
-
-
-// Afficher les ainés FILTRES
+// Afficher les ainés FILTRÉS
+// **************************
 function showFilteredElders(eldersList) {
   eldersDiv.innerHTML = "";
   formResultsDiv.innerHTML = "";
@@ -157,7 +115,7 @@ function showFilteredElders(eldersList) {
       !typeRecherche ||
       elder.type.toLowerCase().includes(typeRecherche.toLowerCase());
     const matchVille =
-      !villeRecherche || elder.city.toLowerCase().includes(villeRecherche);
+      !villeRecherche || elder.city?.toLowerCase().includes(villeRecherche);
     console.log("🍓", matchType, typeRecherche, elder.type);
     console.log("🥝", matchVille, villeRecherche, elder.city);
     return matchType && matchVille;
@@ -166,16 +124,19 @@ function showFilteredElders(eldersList) {
   if (filtered.length === 0) {
     resultNbrDiv.innerHTML = `<p>Aucun résultat trouvé.</p>`;
     resultNbrDiv.classList.add("nbrSearchResults");
+  }else{
+    resultNbrDiv.innerHTML = `<p>${filtered.length} résultat(s) trouvé(s)</p>`;
+    resultNbrDiv.classList.add("nbrSearchResults");
   }
-  resultNbrDiv.innerHTML = `<p>${filtered.length} résultat(s) trouvé(s)</p>`;
-  resultNbrDiv.classList.add("nbrSearchResults");
   setResetLink();
 
   filtered.forEach((elder) => renderElderCard(elder, formResultsDiv));
 }
 
+// Fonctions utilitaires
+// *********************
 
-// Génère et insère UNE carte pour un aîné donné dans le conteneur "card"
+// GENERER / INSERER UNE card pour un aîné donné dans le conteneur "card"
 function renderElderCard(elder, formResultsDiv) {
   const card = document.createElement("div");
   const elderImage = document.createElement("img");
@@ -212,7 +173,8 @@ function renderElderCard(elder, formResultsDiv) {
   card.appendChild(bookActivity);
 
   // Attacher l'événement sur le bouton après que le DOM a été mis à jour
-  bookActivity.addEventListener("click", () => {
+  bookActivity.addEventListener("click", (e) => {
+    e.preventDefault();
     console.log(`${elder.firstname} - ${elder.type}`);
   });
 
@@ -220,7 +182,8 @@ function renderElderCard(elder, formResultsDiv) {
   formResultsDiv.appendChild(card);
 }
 
-// Reset lien formulaire
+
+// RESET lien formulaire
 function setResetLink() {
   const link = document.createElement("a"); // Créer dynamiquement le lien
   link.href = "/visiter.html";
@@ -230,18 +193,47 @@ function setResetLink() {
 }
 
 
-
-// affichage pages
-// if(eldersList.length > 8) {
-//   // On crée une barre de navigation s'il y a plus de 8 elders
-//   paginationDiv.innerHTML = '';
-//   list.forEach((item, i) => {
-//     const caption = item.textContent;
-//     innerHTML += `<button data-page="${i}">${caption}</button>`;
-//   });
-// }
-
-
-
-
+// Affichage de la PAGINATION
+function renderPagination(eldersList){
+	const totalPages = Math.ceil(eldersList.length / itemsPerPage);
+	pageNumbersDiv.innerHTML = "";
+  
+	  for(let i = 0; i < totalPages; i++){
+		const pageNumberBtn = document.createElement("button");
+		pageNumberBtn.innerText = i + 1;
+		pageNumberBtn.classList.add("pagination");
+		  if(i === currentPage){
+			pageNumberBtn.classList.add("active");
+		  }
+		  pageNumberBtn.addEventListener("click", ()=>{
+			currentPage = i;
+			showAllElders(eldersList);
+		  });
+		  pageNumbersDiv.appendChild(pageNumberBtn);
+	  }
+	  // Met à jour l'état des boutons précédent/suivant
+	  // assure que l’état des boutons "Précédent" et "Suivant" soit correct à chaque changement de page, même quand on change de page en cliquant sur un bouton numérique.
+	previousButton.disabled = currentPage === 0;
+	nextButton.disabled = (currentPage + 1) * itemsPerPage >= eldersList.length;
+  }
+  
+  // bouton PRECEDENT
+  previousButton.addEventListener("click", ()=>{
+	if(currentPage > 0){
+	  currentPage--;
+	  showAllElders(eldersList);
+	  nextButton.disabled = false;
+	}
+	if(currentPage === 0){
+	  previousButton.disabled = true;
+	}
+  });
+  // bouton SUIVANT
+  nextButton.addEventListener("click", ()=>{
+	currentPage++;
+	showAllElders(eldersList);
+	if((currentPage + 1) * itemsPerPage >= eldersList.length){
+	  nextButton.disabled = true;
+	};
+  });
   
