@@ -73,13 +73,11 @@ hgroup,
 menu,
 nav,
 output,
-ruby,
 section,
 summary,
 time,
-mark,
-audio,
-video {
+mark
+{
   margin: 0;
   padding: 0;
   border: 0;
@@ -130,7 +128,6 @@ body {
   background-color: var(--medium-grey-color);
   height: 100%;
   margin: 0;
-  /* padding-bottom: 80px; */
 }
 body {
   font-family: var(--font-family-body);
@@ -147,13 +144,13 @@ h1 {
   font-family: var(--font-family-heading);
   font-size: 4em;
   font-weight: bold;
-  margin: 2em, 0;
+  margin: 0.5em 0;
 }
 h2 {
   font-family: var(--font-family-heading);
   font-size: 3em;
   font-weight: bold;
-  margin: 2em, 0;
+  margin: 1em 0;
 }
 h3 {
   font-family: var(--font-family-heading);
@@ -262,13 +259,10 @@ button#btn-previous:disabled, button#btn-next:disabled{
   cursor: default;
 }
 
-
-
 /* HEADER */
 header {
   min-height: 4.25rem;
   background-color: rgb(243, 240, 240);
-  /* background-color: var(--light-color); */
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -315,12 +309,10 @@ nav li a {
   border-bottom: 2px solid transparent;
   padding: 10px 0px;
 }
-/* PAGE 1 */
-/* ****** */
+/* PAGE 1: ACCUEIL*/
+/* *************** */
+
 /* SECTION ACCUEIL */
-/*section{
-  margin: var(--section-margin);  2rem 0 
-}*/
 #accueil {
   position: relative;
   color: white;
@@ -386,20 +378,20 @@ nav li a {
   width: 50%;
 }
 /* SECTION PERSONNALITES */
-
 main {
-  margin-top: 5em;
+  /* margin-top: 5em; */
   min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-#persons {
+section#persons {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top : 3.5em;
 }
 /* mosaïque photos */
 #mosaique {
@@ -466,17 +458,18 @@ main {
 
 /* COMMENT CA MARCHE */
 /* syles communs à la section "comment ça marche" et "pourquoi devenir bénévole ?" */
-#how, #why {
+#how{
   text-align: center;
   background-color: white;
-  padding: 4em, 3.5em;
+  padding: 4em 3em;
+  margin: 1.5em 0;
 }
 #cards {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: stretch; /* Étire les éléments enfants sur l'axe transversal */
-  margin: 1em, 0;
+  margin: 1em 0;
 }
 .card {
   border-radius: 15px;
@@ -496,16 +489,13 @@ main {
   padding: 4em 8em 4em 8em;
   text-align: center;
 }
-/* #call{
-	margin: 1em 5.5em;
-} */
 #btn-CTA, #btn-FAQ {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
-/* FOOTER */
 
+/* FOOTER */
 footer {
   /* position: fixed; */
   bottom: 0;
@@ -573,6 +563,7 @@ footer p {
   color: white;
 }
 
+
 /* PAGE 2 : VISITER */
 /* **************** */
 
@@ -580,7 +571,6 @@ footer p {
   background-color: (--medium-grey-color);
 }
 /* Formulaire recherche */
-
 #recherchePage2{
   margin: 2em auto;
   display: flex;
@@ -588,13 +578,10 @@ footer p {
   justify-content: center;
 }
 #recherche2 {
-  /* position: absolute; */
   width: 65%;
-  /* bottom: -3.5em; */
   background-color: white;
   box-shadow: var(--shadow-xl);
   padding: 2em;
-  /* z-index: 1; */
   border-radius: 15px;
   color: black;
   margin-top: 1em;
@@ -629,6 +616,14 @@ footer p {
 
 /* CARDS AINES */
 #searchFormResults,
+#loader {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 colonnes de largeur égale */
+  /* grid-auto-rows: 150px;  rend toutes les lignes égales en hauteur */
+  gap: 10px;
+  background-color: var(--light-color);
+}#searchFormResults,
 #loader {
   width: 70%;
   display: grid;
@@ -684,8 +679,55 @@ footer p {
   margin-top: 0.5em;
   padding: 0.5em;
 }
-/* PAGINATION */
+/* Affichage tous les aînés dans la section PROFILS */
+#profils {
+  background-color: var(--medium-grey-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 7em;
+}
+#profils p{
+  margin: 0.25em 0;
+}
+.eldercard {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  /* padding : 0.4em; */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden; /* évite le débordement */
+}
+.eldercard p{
+  padding : 0.4em;
+}
+.photoCard{
+  height: 40%;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+#profils .textMomentCard{
+  font-weight: bold;
+  text-align: center;
+  margin: 1.75em 0.10em 0.10em 0.10em;
+}
+.firstnameCard {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 2em;
+  margin-left: 0.25em;
+}
+#profils .paragraphCard{
+  font-size: 0.75em;
+  margin-top: 0.5em;
+  padding: 0.5em;
+}
 
+/* PAGINATION */
 #pagination{
   margin-top: 1.5em;
 }
@@ -696,16 +738,7 @@ footer p {
   gap: 1em; /* espace entre les éléments si besoin */
 }
 
-/* #buttonsDiv{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-} */
-
-
-
 /* Affichage du résultat du filtre dans la div "searchFormResults" */
-
 #filtered{
   margin: 2em 1em;
   padding: 2em 1em;
@@ -713,13 +746,13 @@ footer p {
   flex-direction: row;
   justify-content: center;
 }
-
 #searchFormResults {
   height: 100%;
   gap: 14px;
 }
 
 /* PAGE 3 : BENEVOLAT */
+/* ****************** */
 
 #benevolat {
   position: relative;
@@ -774,16 +807,10 @@ footer p {
 #volunteer-form h2{
   margin: 0.5em 0;
 }
-/* #volunteer-form p:first-child{
-  text-align: center;
-  margin: 0;
-  line-height: 0.5em;
-} */
 .form-group-volunteer {
   display: flex;
   flex-direction: row;
   justify-content:space-between;
-  /* padding: 0 1.5em; */
   margin: 0.3em 0;
 }
 .form-groupPage3 {
@@ -792,7 +819,6 @@ footer p {
   flex-direction: column;
   justify-content: space-around;
   align-items:start;
-  /* gap: 10px; */
 }
 
  .form-groupPage3.name,
@@ -807,11 +833,6 @@ footer p {
  .form-groupPage3.zipcode input{
   width: 100%;
  }
-
- /* .form-groupPage3.surname input,
- .form-groupPage3.zipcode input{
-  align-self: flex-end;
- } */
  .form-groupPage3.mail,
  .form-groupPage3.mail input,
  .form-groupPage3.disponibilites,
@@ -838,10 +859,18 @@ button#btn-volunteer{
   border-radius: 25px;
   padding: 0.5em 1em;
 }
+
 /* Pourquoi devenir bénévole */
-#why{
-  margin-top: 20em;
+#why {
+  text-align: center;
+  background-color: white;
+  padding: 4em 3em;
+  margin: 7em 0 5em 0;
 }
+#why .blocs{
+  margin-top: 1em;
+}
+
 /* Témoignages bénévoles */
 #cards-volunteers {
   display: flex;
@@ -874,25 +903,21 @@ button#btn-volunteer{
   display: flex;
   flex-direction: column;
 }
-
 .card-volunteer p{
   font-style: italic;
   margin: 1.25em 0 -0.5em 1em;
 }
-
 .quotation {
   display: flex;
   align-items: flex-start;
   gap: 0.5em;
   margin: 1em 0;
 }
-
 .quote {
   font-size: 4em;
   color: #ccc;
   line-height: 1;
 }
-
 .quotation blockquote {
   margin: 0;
   padding: 0 1em 0 0;
@@ -901,11 +926,5 @@ button#btn-volunteer{
   line-height: 1.5;
 }
 
-
-
-
-
-
-/* Questions */
 
 

@@ -4,7 +4,7 @@ const formResultsDiv = document.querySelector("#searchFormResults");
 const resultNbrDiv = document.querySelector("#nbrSearch");
 
 
-// affichage résultats search form
+// renvoi vers page VISITER.html et affichage des résultats search form
 const searchParams = new URLSearchParams(window.location.search);
 const typeRecherche = searchParams.get("moment-type");
 const villeRecherche = searchParams.get("ville")?.toLowerCase();
