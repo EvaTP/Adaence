@@ -67,33 +67,39 @@
 			</div>
 			<!-- FORMULAIRE -->
 			<div id="volunteer-form">
-			  <form action="visiter.html" method="GET" target="_blank">
+			  <form id="beVolunteerForm" action="index.html" method="GET" target="_blank" novalidate>
 				<h2>FORMULAIRE D'INSCRIPTION</h2>
 				<p>Remplissez ce formulaire pour réjoindre notre réseau de bénévoles. Nous vous contacterons rapidement pour vous présenter les prochaines étapes.</p>
 				<div class="form-group-volunteer">
 					<div class="form-groupPage3 name">
 						<label for="prenom" required>Prénom <span>*</span></label>
 						<input type="text" name="prenom" placeholder="Votre prénom">
+						<div class="error invisible">Ce champ est obligatoire.</div>
 					</div>
 					<div class="form-groupPage3 surname">
 						<label for="nom" required>Nom <span>*</span></label>
 						<input type="text" name="nom" placeholder="Votre nom">
+						<div class="error invisible">Ce champ est obligatoire.</div>
 					</div>
 				</div>
 				<div class="form-group-volunteer">
 					<div class="form-groupPage3 mail">
 						<label for="email" required>Adresse email <span>*</span></label>
 						<input type="email" name="email" placeholder="exemple@gmail.com">
+						<div class="error invisible">Ce champ est obligatoire.</div>
 					</div>
 				</div>
 				<div class="form-group-volunteer">
 					<div class="form-groupPage3 city">
 						<label for="ville">Ville <span>*</span></label>
 						<input type="text" name="ville" required placeholder="Votre ville">
+						<div class="error invisible">Ce champ est obligatoire.</div>
+
 					</div>
 					<div class="form-groupPage3 zipcode">
 						<label for="cp">Code postal <span>*</span></label>
 						<input type="text" name="cp" required placeholder="Code postal">
+						<div class="error invisible">Ce champ est obligatoire.</div>
 					</div>
 				</div>
 
@@ -107,18 +113,22 @@
 							<option value="amidi">L'après-midi</option>
 							<option value="soiree">En soirée</option>
 						</select>
+						<div class="error invisible">Ce champ est obligatoire.</div>
 					</div>
 				</div>	
 			  <div class="form-group-volunteer">
 					<div class="form-groupPage3 motiv">
 						<label for="motivation">Votre motivation <span>*</span></label>
 						<textarea name="motivation" required id="motivation" rows="10" cols="33" maxlength="40" placeholder="Parlez-nous de votre motivation à devenir bénévole chez Adaence..."></textarea>
+						<div class="error invisible">Ce champ est obligatoire.</div>
 					</div>
 				</div>
 			  <p><span>*</span> champs obligatoires</p>
 				<button type="submit" id="btn-volunteer" class="yellow">Envoyer ma candidature</button>
 			  </form>
 			</div>
+			<!-- message confirmation envoi formulaire -->
+			<div id="confirmation" class="invisible"></div>
 		  </section>
 		<main>
 			<!-- SECTION POURQUOI DEVENIR BENEVOLE -->
@@ -272,6 +282,6 @@
 	  </p>
 	</div>
   </footer>
-	
+	<script src="formulaire.js"></script>
 </body>
 </html>

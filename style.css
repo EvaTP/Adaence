@@ -859,6 +859,37 @@ button#btn-volunteer{
   border-radius: 25px;
   padding: 0.5em 1em;
 }
+/* message erreur remplissage formulaire */
+.error {
+  color: red;
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+.invisible {
+  display: none;
+}
+.visible {
+  display: block;
+}
+#confirmation {
+  margin-top: 12em;
+  padding: 2em;
+  background-color: var(--light-color);
+  border-radius: 10px;
+  text-align: center;
+  max-width: 800px;
+  box-shadow: var(--shadow-lg);
+  font-weight: bold;
+  font-size: 2em;
+}
+#confirmation h2{
+  margin-top : 3em;
+}
+#confirmation p{
+  font-weight: lighter;
+}
+
 
 /* Pourquoi devenir bénévole */
 #why {
